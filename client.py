@@ -72,7 +72,7 @@ def redrawWindow(win, game, p):
             elif game.p2Went:
                 text2 = font.render("Locked In", 1, (0, 0, 0))
             else:
-                text2 = font.render("Waiting", 1 (0, 0, 0))
+                text2 = font.render("Waiting", 1, (0, 0, 0))
 
         if p == 1:
             win.blit(text2, (50, 175))
@@ -117,13 +117,13 @@ def main():
                 print("Couldn't get game")
                 break
 
-            font = pygame.font.SysFont("AvantiGarde"< 40)
-            if (game.winner() == 1 and player == 1) or (game.winner() = 0 and player == 0):
+            font = pygame.font.SysFont("AvantiGarde", 40)
+            if (game.winner() == 1 and player == 1) or (game.winner() == 0 and player == 0):
                 text = font.render("You Won!", 1, (0, 255, 0))
             elif game.winner() == -1:
                 text = font.render("Tie Game!", 1, (125, 125, 125))
             else:
-                text = font.render("You lost...", 1 (255, 0, 0))
+                text = font.render("You lost...", 1, (255, 0, 0))
 
             win.blit(text, (width/2 - text.get_width()/2, # todo: figure this out
                             height/2 - text.get_height()/2)) # middle
@@ -135,7 +135,7 @@ def main():
                 run = False
                 pygame.quit()
 
-            if event.type == pygame.MOUSEBUTTONDOWN
+            if event.type == pygame.MOUSEBUTTONDOWN:
                 pos = pygame.mouse.get_pos()
                 for btn in btns:
                     if btn.click(pos) and game.connected():
@@ -164,7 +164,7 @@ def menu_screen():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 run = False
-            if event.type == pygame.MOUSEBUTTONDOWN
+            if event.type == pygame.MOUSEBUTTONDOWN:
                 run = False
 
     main()
