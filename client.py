@@ -117,7 +117,7 @@ def main():
                 print("Couldn't get game")
                 break
 
-            font = pygame.font.SysFont("AvantiGarde", 40)
+            font = pygame.font.SysFont("AvantGarde", 40)
             if (game.winner() == 1 and player == 1) or (game.winner() == 0 and player == 0):
                 text = font.render("You Won!", 1, (0, 255, 0))
             elif game.winner() == -1:
