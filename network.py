@@ -1,5 +1,5 @@
 import socket
-
+import pickle
 
 class Network:
     def __init__(self):
@@ -11,7 +11,7 @@ class Network:
         #self.id = self.connect() # assign an id to whatever connects to the client
         #print(self.id)
 
-    def getPos(self):
+    def getP(self):
         return self.p
 
     def connect(self):
@@ -26,6 +26,6 @@ class Network:
         # allows us to send back information when we connecte
         try:
             self.client.send(str.encode(data))
-            return self.client.recv(2048).decode()
+            return pickle.loads(self.client.recv(2048*2))
         except socket.error as e:
             print(e)
